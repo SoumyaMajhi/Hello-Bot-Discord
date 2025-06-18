@@ -102,7 +102,7 @@ Follow these steps to run the bot on your local machine:
 
 ### 1. Clone the repository
 ```b
-git clone https://github.com/your-username/Hello-Bot-Discord.git
+git clone https://github.com/SoumyaMajhi/Hello-Bot-Discord.git
 cd Hello-Bot-Discord
 ```
 ### 2. Create a `.env` file in the root of your project folder with the above Environment Setup
