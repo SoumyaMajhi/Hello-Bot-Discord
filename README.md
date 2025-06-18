@@ -1,6 +1,6 @@
 # 🤖 Hello-Bot-Discord
 
-A simple, friendly Discord bot that detects sad words and responds with uplifting encouragements. Built with `discord.py`, PostgreSQL, and hosted on platforms like **Render** and **Neon**.
+A simple, friendly Discord bot that detects sad words and responds with uplifting encouragements. Built with `discord.py`, PostgreSQL, and hosted on platforms like **Render**, **Uptime Robot** and **Neon**.
 
 ---
 
@@ -26,13 +26,18 @@ A simple, friendly Discord bot that detects sad words and responds with upliftin
 
 ---
 
-### ✨ Encouragements
+### ✨ Main Commands
 
 | Command | Description |
 |--------|-------------|
+| `$hello` | Greet the bot |
+| `$quote` | Get a motivational quote from [ZenQuotes API](https://zenquotes.io/api/random) |
 | `$addenc <message>` | Add a custom encouragement message |
 | `$removeenc <index>` | Remove a custom encouragement by its index |
-| `$list` | Display all encouragements (default + custom) |
+| `$addsad <word>` | Add a custom sad word |
+| `$removesad <index>` | Remove a custom sad word by its index |
+| `$list` | Display all encouragements & sad words (default + custom) |
+---
 
 **Default Encouragements**:
 ```
@@ -61,12 +66,6 @@ You will surely pass this!
 
 ### 😢 Sad Words
 
-| Command | Description |
-|--------|-------------|
-| `$addsad <word>` | Add a custom sad word |
-| `$removesad <index>` | Remove a custom sad word by its index |
-| `$list` | Display all sad words (default + custom) |
-
 **Default Sad Words**:
 ```
 sad, hopeless, depressed, unhappy, angry, depressing, mournful,
@@ -78,16 +77,17 @@ lose, lost, broke, breakup
 
 ---
 
-### 🎉 Fun Commands
+## 🛠️ Tech Stack
 
-| Command | Description |
-|--------|-------------|
-| `$hello` | Greet the bot |
-| `$quote` | Get a motivational quote from [ZenQuotes API](https://zenquotes.io/api/random) |
-
+- Python 3.x
+- Flask (for UptimeRobot ping endpoint)
+- [discord.py](https://discordpy.readthedocs.io/en/stable/)
+- PostgreSQL (via [Neon](https://neon.tech))
+- Hosting via [Render](https://render.com)
+- Keep-alive via [Uptime Robot](https://uptimerobot.com)
 ---
 
-## 💾 Environment Setup (.env)
+## 💾 Environment Setup (.env) 
 
 ```
 TOKEN=your_discord_bot_token
@@ -96,29 +96,43 @@ DATABASE_URL=your_neon_or_render_postgres_connection_url
 
 ---
 
-## 🛠️ Tech Stack
+## 🧪 Running Locally
 
-- Python 3.x
-- [discord.py](https://discordpy.readthedocs.io/en/stable/)
-- PostgreSQL (via [Render](https://render.com) or [Neon](https://neon.tech))
-- Hosted using [Uptime Robot](https://uptimerobot.com/) + `keep_alive` Flask server
+Follow these steps to run the bot on your local machine:
 
----
+### 1. Clone the repository
+```b
+git clone https://github.com/your-username/Hello-Bot-Discord.git
+cd Hello-Bot-Discord
+```
+### 2. Create a `.env` file in the root of your project folder with the above Environment Setup
+
+### 3. Create and activate a virtual environment
+```
+python -m venv venv
+
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+
+# On macOS/Linux:
+source venv/bin/activate
+```
+### 4. Install dependencies
+```
+pip install -r requirements.txt
+```
+
+### 5. Run the bot
+```
+python main.py
+```
+
 
 ## 🧠 Todo / Future Features
 
 - Slash commands (`/`)
+- Admin moderation commands
 - UI dashboard to manage sad words and encouragements
 - Multi-server support with per-server config
 
----
-
-## 🤝 License
-
-MIT License — use freely with love 💙
-
----
-
-## ✨ Screenshot (optional)
-
-*(Add a Discord screenshot showing the bot in action)*
