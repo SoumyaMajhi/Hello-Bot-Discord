@@ -80,11 +80,11 @@ lose, lost, broke, breakup
 ## 🛠️ Tech Stack
 
 - Python 3.x
-- Flask (for UptimeRobot ping endpoint)
+- Flask server (for UptimeRobot ping endpoint)
 - [discord.py](https://discordpy.readthedocs.io/en/stable/)
 - PostgreSQL (via [Neon](https://neon.tech))
-- Hosting via [Render](https://render.com)
-- Keep-alive via [Uptime Robot](https://uptimerobot.com)
+- Hosting (via [Render](https://render.com))
+- Keep-alive (via [Uptime Robot](https://uptimerobot.com))
 ---
 
 ## 💾 Environment Setup (.env) 
