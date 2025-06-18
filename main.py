@@ -4,7 +4,7 @@ import requests
 import json
 import random
 from dotenv import load_dotenv
-
+from server import keep_alive
 
 load_dotenv()
 token = os.getenv('TOKEN')
@@ -133,26 +133,6 @@ async def on_message(message):
         except Exception:
             await message.channel.send("❌ Invalid index. Use `$listenc` to view.")
 
-    # elif msg.startswith('$listenc'):
-    #     encs = data["custom_encouragements"]
-    #     if encs:
-    #         await message.channel.send("📃 Custom encouragements:\n" + "\n".join(f"{i}. {e}" for i, e in enumerate(encs)))
-    #     else:
-    #         await message.channel.send("No custom encouragements added yet.")
-
-    elif msg.startswith('$list'):
-        all_sad = DEFAULT_SAD_WORDS + data["custom_sad_words"]
-        all_encs = starter_encouragements + data["custom_encouragements"]
-
-        sad_text = "\n".join(f"{i}. {w}" for i, w in enumerate(all_sad))
-        enc_text = "\n".join(f"{i}. {e}" for i, e in enumerate(all_encs))
-
-        response = "**📃 All Sad Words (default + custom):**\n" + sad_text
-        response += "\n\n**📃 All Encouragements (default + custom):**\n" + enc_text
-
-        await message.channel.send(response)
-
-
     elif msg.startswith('$addsad '):
         word = msg.split("$addsad", 1)[1].strip().lower()
         if word not in data["custom_sad_words"]:
@@ -171,12 +151,17 @@ async def on_message(message):
         except Exception:
             await message.channel.send("❌ Invalid index. Use `$listsad` to view.")
 
-    # elif msg.startswith('$listsad'):
-    #     sad = data["custom_sad_words"]
-    #     if sad:
-    #         await message.channel.send("📃 Custom sad words:\n" + "\n".join(f"{i}. {w}" for i, w in enumerate(sad)))
-    #     else:
-    #         await message.channel.send("No custom sad words yet.")
+    elif msg.startswith('$list'):
+        all_sad = DEFAULT_SAD_WORDS + data["custom_sad_words"]
+        all_encs = starter_encouragements + data["custom_encouragements"]
+
+        sad_text = "\n".join(f"{i}. {w}" for i, w in enumerate(all_sad))
+        enc_text = "\n".join(f"{i}. {e}" for i, e in enumerate(all_encs))
+
+        response = "**📃 All Sad Words (default + custom):**\n" + sad_text
+        response += "\n\n**📃 All Encouragements (default + custom):**\n" + enc_text
+
+        await message.channel.send(response)
 
     elif msg.startswith('$responding'):
         value = msg.split("$responding", 1)[1].strip().lower()
@@ -197,5 +182,7 @@ async def on_message(message):
         if any(word in msg for word in all_sad):
             all_encs = starter_encouragements + data["custom_encouragements"]
             await message.channel.send(random.choice(all_encs))
+
+keep_alive()
 
 bot.run(token)
