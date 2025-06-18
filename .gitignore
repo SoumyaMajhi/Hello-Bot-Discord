@@ -1,0 +1,4 @@
+# Ignore a folder and all its contents
+/venv/
+/__pycache__/
+.env
