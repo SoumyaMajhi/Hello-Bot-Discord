@@ -101,7 +101,7 @@ DATABASE_URL=your_neon_or_render_postgres_connection_url
 Follow these steps to run the bot on your local machine:
 
 ### 1. Clone the repository
-```b
+```
 git clone https://github.com/SoumyaMajhi/Hello-Bot-Discord.git
 cd Hello-Bot-Discord
 ```
@@ -110,12 +110,14 @@ cd Hello-Bot-Discord
 ### 3. Create and activate a virtual environment
 ```
 python -m venv venv
-
-# Activate virtual environment
-# On Windows:
+```
+### ▶️ Activate the environment:
+On Windows:
+```
 venv\Scripts\activate
-
-# On macOS/Linux:
+```
+On macOS/Linux:
+```
 source venv/bin/activate
 ```
 ### 4. Install dependencies
